@@ -72,7 +72,7 @@ Make sure you have the following installed:
    ```bash
    cp .env.example .env.local
    ```
-   
+
    Fill in your environment variables:
 
    ```env
