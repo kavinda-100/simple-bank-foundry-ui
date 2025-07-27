@@ -34,7 +34,13 @@ const Header = () => {
       </div>
       <div className="flex items-center space-x-2">
         <ModeToggle />
-        <ConnectButton />
+        <ConnectButton
+          showBalance={false}
+          accountStatus={{
+            smallScreen: "avatar",
+            largeScreen: "full",
+          }}
+        />
       </div>
     </header>
   );
