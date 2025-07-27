@@ -1,9 +1,12 @@
 import "@/styles/globals.css";
-import Header from "@/components/Header";
-import { ThemeProvider } from "@/providers/ThemeProvider";
+import "@rainbow-me/rainbowkit/styles.css";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
+
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import WebTreeProvider from "@/providers/WebTreeProvider";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Simple Bank",
@@ -33,10 +36,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="container mx-auto min-h-screen">
-            <Header />
-            <section className="pt-[60px]">{children}</section>
-          </main>
+          <WebTreeProvider>
+            <main className="container mx-auto min-h-screen">
+              <Header />
+              <section className="pt-[60px]">{children}</section>
+            </main>
+          </WebTreeProvider>
         </ThemeProvider>
       </body>
     </html>

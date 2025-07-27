@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { Button } from "./ui/button";
 import { ModeToggle } from "./ModeToggle";
 import { cn } from "@/lib/utils";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -34,7 +34,7 @@ const Header = () => {
       </div>
       <div className="flex items-center space-x-2">
         <ModeToggle />
-        <Button>Temp</Button>
+        <ConnectButton />
       </div>
     </header>
   );
