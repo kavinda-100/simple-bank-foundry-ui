@@ -37,10 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <WebTreeProvider>
-            <header className="mx-auto w-full max-w-[2000px]">
-              <Header />
-            </header>
-            <main className="mx-auto min-h-screen w-full max-w-[2000px] pt-[60px]">
+            <main className="mx-auto min-h-screen w-full max-w-[2000px]">
               {children}
             </main>
           </WebTreeProvider>

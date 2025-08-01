@@ -4,8 +4,14 @@ import React from "react";
 import { ModeToggle } from "./ModeToggle";
 import { cn } from "@/lib/utils";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { c } from "node_modules/framer-motion/dist/types.d-Cjd591yU";
 
-const Header = () => {
+type HeaderProps = {
+  header_className?: string;
+  className?: string;
+};
+
+const Header = ({ header_className, className }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = React.useState(false);
 
   // Listener to scroll events to hide the header on scroll down
@@ -27,10 +33,13 @@ const Header = () => {
           "bg-white/50 shadow-sm backdrop-blur-md": isScrolled,
           "bg-transparent": !isScrolled,
         },
+        className,
       )}
     >
       <div className="space-x-4">
-        <h1 className="text-2xl font-bold">Simple Bank</h1>
+        <h1 className={cn("text-2xl font-bold", header_className)}>
+          Simple Bank
+        </h1>
       </div>
       <div className="flex items-center space-x-2">
         <ModeToggle />
