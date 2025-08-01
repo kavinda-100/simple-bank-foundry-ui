@@ -1,4 +1,4 @@
-import { sql } from "drizzle-orm";
+import { sql, relations } from "drizzle-orm";
 import { pgEnum, pgTable } from "drizzle-orm/pg-core";
 import * as d from "drizzle-orm/pg-core";
 
@@ -54,8 +54,11 @@ export const transactions = pgTable(
   "transactions",
   {
     ...primaryKeys,
+    userId: d.uuid("user_id").references(() => usersBankAccount.id, {
+      onDelete: "cascade",
+    }),
     from: d.text("from").notNull(),
-    to: d.text("to"), // Nullable for transactions that don't have a recipient
+    to: d.text("to"), // Nullable for transactions that don't have a recipient like deposits and withdrawals
     amount: d
       .numeric("amount", { precision: 20, scale: 2 })
       .notNull()
@@ -74,6 +77,9 @@ export const loans = pgTable(
   "loans",
   {
     ...primaryKeys,
+    userId: d.uuid("user_id").references(() => usersBankAccount.id, {
+      onDelete: "cascade",
+    }),
     borrower: d.text("borrower").notNull(),
     amount: d
       .numeric("amount", { precision: 20, scale: 2 })
@@ -90,4 +96,34 @@ export const loans = pgTable(
     ...timestamps,
   },
   (table) => [d.uniqueIndex("loans_borrower_idx").on(table.borrower)],
+);
+
+// relationships
+
+// users_bank_account to transactions (one-to-many)
+export const transactionsRelation = relations(transactions, ({ one }) => ({
+  user: one(usersBankAccount, {
+    fields: [transactions.userId],
+    references: [usersBankAccount.id],
+  }),
+}));
+export const usersBankAccountRelationWithTransactions = relations(
+  usersBankAccount,
+  ({ many }) => ({
+    transactions: many(transactions),
+  }),
+);
+
+// users_bank_account to loans (one-to-many)
+export const loansRelation = relations(loans, ({ one }) => ({
+  user: one(usersBankAccount, {
+    fields: [loans.userId],
+    references: [usersBankAccount.id],
+  }),
+}));
+export const usersBankAccountRelationWithLoans = relations(
+  usersBankAccount,
+  ({ many }) => ({
+    loans: many(loans),
+  }),
 );
