@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { easeInOut, motion, spring } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { useEffect, useState } from "react";
+import { easeInOut, motion, spring } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Database,
   Sparkles,
   Zap,
   ArrowUpRight,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function AppHero() {
   // State for animated counters
@@ -23,13 +23,13 @@ export default function AppHero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setStats((prev) => {
-        const newUsers = prev.users >= 20000 ? 20000 : prev.users + 500;
+        const newUsers = prev.users >= 1000000 ? 1000000 : prev.users + 10000;
         const newTransactions =
           prev.transactions >= 1500000 ? 1500000 : prev.transactions + 37500;
         const newNetworks = prev.networks >= 40 ? 40 : prev.networks + 1;
 
         if (
-          newUsers === 20000 &&
+          newUsers === 1000000 &&
           newTransactions === 1500000 &&
           newNetworks === 40
         ) {
@@ -84,7 +84,7 @@ export default function AppHero() {
     transition: {
       duration: 20,
       repeat: Infinity,
-      ease: 'linear',
+      ease: "linear",
     },
   };
 
@@ -120,7 +120,7 @@ export default function AppHero() {
     transition: {
       duration: 2,
       repeat: Infinity,
-      ease: 'easeInOut',
+      ease: "easeInOut",
     },
   };
 
@@ -192,7 +192,7 @@ export default function AppHero() {
               transition={{
                 duration: 3 + Math.random() * 2,
                 repeat: Infinity,
-                ease: 'easeInOut',
+                ease: "easeInOut",
                 delay: Math.random() * 2,
               }}
             />
@@ -259,7 +259,7 @@ export default function AppHero() {
               <span className="mr-2 rounded-full bg-purple-500 px-2 py-0.5 text-xs font-semibold text-white">
                 New
               </span>
-              Introducing Nexus Platform
+              Introducing Web3 Platform
             </motion.div>
 
             <motion.h1
@@ -268,7 +268,7 @@ export default function AppHero() {
             >
               The Bridge Between <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                AI and Web3
+                Finance and Web3
               </span>
             </motion.h1>
 
@@ -329,9 +329,8 @@ export default function AppHero() {
               variants={itemVariants}
               className="mb-8 max-w-md px-6 text-center text-lg leading-relaxed text-slate-300/90 lg:text-end"
             >
-              Nexus connects AI tools with Web3 infrastructure, giving
-              developers the power to build beyond limits. One platform. Endless
-              potential.
+              connects AI tools with Web3 infrastructure, giving finance the
+              power to expand beyond limits. One platform. Endless potential.
             </motion.p>
             <motion.div
               variants={itemVariants}
@@ -341,7 +340,7 @@ export default function AppHero() {
                 className="group rounded-full border-t border-purple-400 bg-gradient-to-b from-purple-700 to-slate-950/80 px-6 py-6 text-white shadow-lg shadow-purple-600/20 transition-all hover:shadow-purple-600/40"
                 size="lg"
               >
-                Start Building
+                Start Exploring
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
 
@@ -350,7 +349,7 @@ export default function AppHero() {
                 className="rounded-full border-purple-500/30 bg-transparent text-white hover:bg-purple-500/10 hover:text-white"
                 size="lg"
               >
-                View Demo
+                Connect
               </Button>
             </motion.div>
 
@@ -370,7 +369,7 @@ export default function AppHero() {
                 ))}
               </div>
               <span className="text-xs text-slate-300">
-                <span className="font-semibold text-white">500+</span>{' '}
+                <span className="font-semibold text-white">500+</span>{" "}
                 developers already building
               </span>
               <ArrowUpRight className="h-3 w-3 text-purple-400" />
