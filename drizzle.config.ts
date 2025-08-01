@@ -7,5 +7,5 @@ export default {
   dbCredentials: {
     url: process.env.DATABASE_URL,
   },
-  tablesFilter: ["simple-bank-foundry-ui_*"],
+  // tablesFilter: ["simple-bank-foundry-ui_*"],
 } satisfies Config;
