@@ -6,8 +6,8 @@ import type React from "react";
 
 export default function HomePage() {
   return (
-    <section className="flex size-full flex-col">
-      <header className="mx-auto w-full max-w-[2000px]">
+    <section className="flex size-full flex-col bg-white dark:bg-black">
+      <header className="relative z-50 mx-auto w-full max-w-[2000px]">
         <Header header_className="text-white" />
       </header>
       <AppHero />

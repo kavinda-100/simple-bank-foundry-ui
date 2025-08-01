@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Mail } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 interface FAQItemProps {
   question: string;
@@ -22,12 +22,14 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
       transition={{
         duration: 0.3,
         delay: index * 0.15,
-        ease: 'easeOut',
+        ease: "easeOut",
       }}
       className={cn(
-        'group border-border/60 rounded-lg border',
-        'transition-all duration-200 ease-in-out',
-        isOpen ? 'bg-card/30 shadow-sm' : 'hover:bg-card/50',
+        "group dark:border-border/60 rounded-lg border border-purple-200 bg-white/60 backdrop-blur-sm dark:bg-transparent",
+        "transition-all duration-200 ease-in-out",
+        isOpen
+          ? "dark:bg-card/30 dark:border-primary/30 border-purple-300 bg-purple-50 shadow-sm"
+          : "hover:bg-purple-25 dark:hover:bg-card/50 hover:border-purple-250 dark:hover:border-primary/20",
       )}
     >
       <button
@@ -37,9 +39,9 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
       >
         <h3
           className={cn(
-            'text-left text-base font-medium transition-colors duration-200',
-            'text-foreground/80',
-            isOpen && 'text-foreground',
+            "text-left text-base font-medium transition-colors duration-200",
+            "dark:text-foreground/80 text-gray-800",
+            isOpen && "dark:text-foreground text-gray-900",
           )}
         >
           {question}
@@ -51,12 +53,14 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
           }}
           transition={{
             duration: 0.3,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
           className={cn(
-            'shrink-0 rounded-full p-0.5',
-            'transition-colors duration-200',
-            isOpen ? 'text-primary' : 'text-muted-foreground',
+            "shrink-0 rounded-full p-0.5",
+            "transition-colors duration-200",
+            isOpen
+              ? "dark:text-primary text-purple-600"
+              : "dark:text-muted-foreground text-gray-500",
           )}
         >
           <ChevronDown className="h-4 w-4" />
@@ -67,7 +71,7 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{
-              height: 'auto',
+              height: "auto",
               opacity: 1,
               transition: {
                 height: {
@@ -86,7 +90,7 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
               transition: {
                 height: {
                   duration: 0.3,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 },
                 opacity: {
                   duration: 0.25,
@@ -94,16 +98,16 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
               },
             }}
           >
-            <div className="border-border/40 border-t px-6 pt-2 pb-4">
+            <div className="dark:border-border/40 border-t border-purple-200 px-6 pt-2 pb-4">
               <motion.p
                 initial={{ y: -8, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -8, opacity: 0 }}
                 transition={{
                   duration: 0.3,
-                  ease: 'easeOut',
+                  ease: "easeOut",
                 }}
-                className="text-muted-foreground text-sm leading-relaxed"
+                className="dark:text-muted-foreground text-sm leading-relaxed text-gray-600"
               >
                 {answer}
               </motion.p>
@@ -116,39 +120,50 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
 }
 
 export default function Faq3() {
-  const faqs: Omit<FAQItemProps, 'index'>[] = [
+  const faqs: Omit<FAQItemProps, "index">[] = [
     {
-      question: 'What makes MVPBlocks unique?',
+      question: "What makes MVPBlocks unique?",
       answer:
         "MVPBlocks stands out through its intuitive design, powerful component library, and seamless integration options. We've focused on creating a user experience that combines simplicity with advanced features, all while maintaining excellent performance and accessibility.",
     },
     {
-      question: 'How can I customize the components?',
+      question: "How can I customize the components?",
       answer:
-        'All components are built with Tailwind CSS, making them highly customizable. You can modify colors, spacing, typography, and more by simply adjusting the class names or using our theme variables to match your brand identity.',
+        "All components are built with Tailwind CSS, making them highly customizable. You can modify colors, spacing, typography, and more by simply adjusting the class names or using our theme variables to match your brand identity.",
     },
     {
-      question: 'Do the components work with dark mode?',
+      question: "Do the components work with dark mode?",
       answer:
         "Yes, all MVPBlocks components are designed to work seamlessly with both light and dark modes. They automatically adapt to your site's theme settings, providing a consistent user experience regardless of the user's preference.",
     },
     {
-      question: 'How can I get started with MVPBlocks?',
+      question: "How can I get started with MVPBlocks?",
       answer:
-        'You can get started by browsing our component library and copying the code for the components you need. Our documentation provides clear instructions for installation and usage, and you can always reach out to our support team if you need assistance.',
+        "You can get started by browsing our component library and copying the code for the components you need. Our documentation provides clear instructions for installation and usage, and you can always reach out to our support team if you need assistance.",
     },
     {
-      question: 'Can I use MVPBlocks for commercial projects?',
+      question: "Can I use MVPBlocks for commercial projects?",
       answer:
-        'Absolutely! MVPBlocks is free to use for both personal and commercial projects. There are no licensing fees or attribution requirements—just build and launch your MVP faster than ever before.',
+        "Absolutely! MVPBlocks is free to use for both personal and commercial projects. There are no licensing fees or attribution requirements—just build and launch your MVP faster than ever before.",
     },
   ];
 
   return (
-    <section className="bg-background relative w-full overflow-hidden py-16">
-      {/* Decorative elements */}
-      <div className="bg-primary/5 absolute top-20 -left-20 h-64 w-64 rounded-full blur-3xl" />
-      <div className="bg-primary/5 absolute -right-20 bottom-20 h-64 w-64 rounded-full blur-3xl" />
+    <section className="relative w-full overflow-hidden bg-gray-50 py-16 dark:bg-black">
+      {/* Decorative elements - theme aware */}
+      <div className="dark:bg-primary/5 absolute top-20 -left-20 h-64 w-64 rounded-full bg-purple-200/30 blur-3xl" />
+      <div className="dark:bg-primary/5 absolute -right-20 bottom-20 h-64 w-64 rounded-full bg-blue-200/30 blur-3xl" />
+
+      {/* Additional background effects */}
+      <div className="absolute inset-0">
+        {/* Radial gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-100/20 via-white/50 to-gray-50 blur-2xl dark:from-indigo-900/20 dark:via-black/50 dark:to-gray-950"></div>
+
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+          <div className="h-full w-full bg-[linear-gradient(to_right,rgba(0,0,0,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[size:4rem_4rem] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_1px,transparent_1px)]"></div>
+        </div>
+      </div>
 
       <div className="relative container mx-auto max-w-6xl px-4">
         <motion.div
@@ -159,15 +174,15 @@ export default function Faq3() {
         >
           <Badge
             variant="outline"
-            className="border-primary mb-4 px-3 py-1 text-xs font-medium tracking-wider uppercase"
+            className="dark:border-primary dark:text-primary mb-4 border-purple-300 bg-purple-50 px-3 py-1 text-xs font-medium tracking-wider text-purple-700 uppercase dark:bg-transparent"
           >
             FAQs
           </Badge>
 
-          <h2 className="from-primary mb-3 bg-gradient-to-r to-rose-400 bg-clip-text text-3xl font-bold text-transparent">
+          <h2 className="dark:from-primary mb-3 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-3xl font-bold text-transparent dark:to-rose-400">
             Frequently Asked Questions
           </h2>
-          <p className="text-muted-foreground text-sm">
+          <p className="dark:text-muted-foreground text-sm text-gray-600">
             Everything you need to know about MVPBlocks
           </p>
         </motion.div>
@@ -182,25 +197,27 @@ export default function Faq3() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className={cn('mx-auto mt-12 max-w-md rounded-lg p-6 text-center')}
+          className={cn(
+            "mx-auto mt-12 max-w-md rounded-lg border border-purple-200 bg-white/50 p-6 text-center backdrop-blur-sm dark:border-gray-800 dark:bg-transparent",
+          )}
         >
-          <div className="bg-primary/10 text-primary mb-4 inline-flex items-center justify-center rounded-full p-2">
+          <div className="dark:bg-primary/10 dark:text-primary mb-4 inline-flex items-center justify-center rounded-full bg-purple-100 p-2 text-purple-600">
             <Mail className="h-4 w-4" />
           </div>
-          <p className="text-foreground mb-1 text-sm font-medium">
+          <p className="dark:text-foreground mb-1 text-sm font-medium text-gray-900">
             Still have questions?
           </p>
-          <p className="text-muted-foreground mb-4 text-xs">
+          <p className="dark:text-muted-foreground mb-4 text-xs text-gray-600">
             We&apos;re here to help you
           </p>
           <button
             type="button"
             className={cn(
-              'rounded-md px-4 py-2 text-sm',
-              'bg-primary text-primary-foreground',
-              'hover:bg-primary/90',
-              'transition-colors duration-200',
-              'font-medium',
+              "rounded-md px-4 py-2 text-sm",
+              "dark:bg-primary dark:text-primary-foreground bg-gradient-to-r from-purple-600 to-blue-600 text-white",
+              "dark:hover:bg-primary/90 hover:from-purple-700 hover:to-blue-700",
+              "transition-all duration-200",
+              "font-medium shadow-lg shadow-purple-500/25",
             )}
           >
             Contact Support
