@@ -5,8 +5,6 @@ import {
   Github,
   Twitter,
   Mail,
-  MapPin,
-  Phone,
   Shield,
   Zap,
   Globe,
