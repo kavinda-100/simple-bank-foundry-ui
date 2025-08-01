@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion } from "framer-motion";
+import { useAccount, useEnsAvatar, useEnsName } from "wagmi";
 import {
   Wallet,
   DollarSign,
@@ -53,18 +54,31 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 const CreateAccountForm = () => {
+  const { address } = useAccount();
+  const { data: ensName } = useEnsName({ address });
+  const { data: ensAvatar } = useEnsAvatar({ name: ensName! });
+
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      wallet_address: "",
+      wallet_address: address ?? "",
       amount: "",
     },
   });
 
   async function onSubmit(values: FormData) {
+    /// steps
+    /// 1. send dta to smart contract
+    /// 2. handle response
+    /// 3. if successful,
+    ///    - save account data to the database (wallet_address, amount_deposit, tx_type, tx_hash, profile_url)
+    ///    - show success message
+    ///    - reset form
+    /// 4. reset form
+    ///
     setIsSubmitting(true);
     try {
       // Simulate API call
