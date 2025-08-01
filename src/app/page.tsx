@@ -7,7 +7,7 @@ import type React from "react";
 export default function HomePage() {
   return (
     <section className="flex size-full flex-col">
-      <Header header_className="text-white" />
+      <Header isHomePage={true} />
       <AppHero />
       <Feature1 />
       <Faq3 />

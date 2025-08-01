@@ -4,20 +4,19 @@ import React from "react";
 import { ModeToggle } from "./ModeToggle";
 import { cn } from "@/lib/utils";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { c } from "node_modules/framer-motion/dist/types.d-Cjd591yU";
 
 type HeaderProps = {
-  header_className?: string;
   className?: string;
+  isHomePage?: boolean;
 };
 
-const Header = ({ header_className, className }: HeaderProps) => {
-  const [isScrolled, setIsScrolled] = React.useState(false);
+const Header = ({ className, isHomePage }: HeaderProps) => {
+  const [scrollY, setScrollY] = React.useState(0);
 
-  // Listener to scroll events to hide the header on scroll down
+  // Listener to scroll events to track scroll position
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -25,21 +24,23 @@ const Header = ({ header_className, className }: HeaderProps) => {
     };
   }, []);
 
+  const isScrolled = scrollY > 0;
+
   return (
     <header
       className={cn(
         "fixed top-0 right-0 left-0 z-100 mx-auto flex size-full h-[40px] items-center justify-between px-2 py-3 md:px-4 lg:py-8",
         {
-          "bg-white/30 shadow-sm backdrop-blur-sm": isScrolled,
+          "bg-white/30 shadow-sm backdrop-blur-sm dark:bg-black/30": isScrolled,
           "bg-transparent": !isScrolled,
+          "text-white dark:text-black": isHomePage && scrollY <= 800,
+          "text-gray-900 dark:text-white": isHomePage && scrollY > 800,
         },
         className,
       )}
     >
       <div className="space-x-4">
-        <h1 className={cn("text-2xl font-bold", header_className)}>
-          Simple Bank
-        </h1>
+        <h1 className="text-2xl font-bold">Simple Bank</h1>
       </div>
       <div className="flex items-center space-x-2">
         <ModeToggle />
