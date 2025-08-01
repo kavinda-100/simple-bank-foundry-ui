@@ -23,7 +23,7 @@ export default function AppHero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setStats((prev) => {
-        const newUsers = prev.users >= 1000000 ? 1000000 : prev.users + 10000;
+        const newUsers = prev.users >= 1000000 ? 1000000 : prev.users + 50000;
         const newTransactions =
           prev.transactions >= 1500000 ? 1500000 : prev.transactions + 37500;
         const newNetworks = prev.networks >= 40 ? 40 : prev.networks + 1;
