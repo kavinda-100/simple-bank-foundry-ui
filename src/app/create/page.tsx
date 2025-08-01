@@ -69,9 +69,16 @@ const CreateAccountForm = () => {
     },
   });
 
+  // run an effect to set the wallet address from the account if available
+  React.useEffect(() => {
+    if (address) {
+      form.setValue("wallet_address", address);
+    }
+  }, [address, form]);
+
   async function onSubmit(values: FormData) {
     /// steps
-    /// 1. send dta to smart contract
+    /// 1. send data to smart contract
     /// 2. handle response
     /// 3. if successful,
     ///    - save account data to the database (wallet_address, amount_deposit, tx_type, tx_hash, profile_url)

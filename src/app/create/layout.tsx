@@ -6,7 +6,7 @@ const CreateLayout = ({
 }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <section className="flex size-full flex-col">
-      <Header isHomePage={true} />
+      <Header isHomePage={false} />
       <div className="pt-[60px]">{children}</div>
     </section>
   );
