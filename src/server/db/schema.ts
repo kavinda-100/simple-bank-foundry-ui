@@ -1,6 +1,7 @@
 import { sql, relations } from "drizzle-orm";
 import { pgEnum, pgTable } from "drizzle-orm/pg-core";
 import * as d from "drizzle-orm/pg-core";
+import { de } from "zod/v4/locales";
 
 // columns helpers
 const timestamps = {
@@ -65,6 +66,7 @@ export const transactions = pgTable(
       .default("0.00"),
     txType: tx_type("tx_type").notNull(),
     txHash: d.text("tx_hash").notNull(),
+    description: d.text("description"),
     ...timestamps,
   },
   (table) => [d.uniqueIndex("from_idx").on(table.from)],
@@ -93,6 +95,7 @@ export const loans = pgTable(
     txHash: d.text("tx_hash").notNull(),
     txType: tx_type("tx_type").notNull(),
     isLoanPaidBack: d.boolean("is_paid").notNull().default(false),
+    description: d.text("description"),
     ...timestamps,
   },
   (table) => [d.uniqueIndex("loans_borrower_idx").on(table.borrower)],
