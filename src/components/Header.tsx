@@ -30,7 +30,7 @@ const Header = ({ header_className, className }: HeaderProps) => {
       className={cn(
         "fixed top-0 right-0 left-0 z-100 mx-auto flex size-full h-[40px] items-center justify-between px-2 py-3 md:px-4 lg:py-8",
         {
-          "bg-white/50 shadow-sm backdrop-blur-md": isScrolled,
+          "bg-white/30 shadow-sm backdrop-blur-sm": isScrolled,
           "bg-transparent": !isScrolled,
         },
         className,
