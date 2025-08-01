@@ -6,7 +6,7 @@ import { Geist } from "next/font/google";
 
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import WebTreeProvider from "@/providers/WebTreeProvider";
-import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Simple Bank",
@@ -37,9 +37,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <WebTreeProvider>
-            <main className="mx-auto min-h-screen w-full max-w-[2000px]">
-              {children}
-            </main>
+            <div className="mx-auto flex min-h-screen w-full max-w-[2000px] flex-col">
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
           </WebTreeProvider>
         </ThemeProvider>
       </body>
