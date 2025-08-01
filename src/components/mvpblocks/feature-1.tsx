@@ -1,42 +1,42 @@
 import {
-  Code,
-  Terminal,
-  Paintbrush,
-  Rocket,
-  Book,
-  PlusCircle,
+  Wallet,
+  ArrowUpDown,
+  Shield,
+  Zap,
+  TrendingUp,
+  Globe,
 } from "lucide-react";
 
 const features = [
   {
-    icon: <Code className="h-6 w-6" />,
-    title: "Developer-Friendly",
-    desc: "Tailored for developers to create and iterate fast, with minimal overhead and maximum flexibility.",
+    icon: <Wallet className="h-6 w-6" />,
+    title: "Wallet Integration",
+    desc: "Seamlessly connect your Ethereum wallet and manage your digital assets with industry-leading security protocols.",
   },
   {
-    icon: <Terminal className="h-6 w-6" />,
-    title: "CLI Support",
-    desc: "Command-line interface support for seamless development and workflow integration.",
+    icon: <ArrowUpDown className="h-6 w-6" />,
+    title: "Smart Transactions",
+    desc: "Deposit, withdraw, and transfer funds instantly using Ethereum smart contracts with transparent, immutable records.",
   },
   {
-    icon: <Paintbrush className="h-6 w-6" />,
-    title: "Easily Customizable",
-    desc: "Every block is built to be editable. From layout to logic, style to structure—make it your own.",
+    icon: <Shield className="h-6 w-6" />,
+    title: "Secure Banking",
+    desc: "Your funds are protected by blockchain technology and smart contract security, ensuring maximum protection.",
   },
   {
-    icon: <Rocket className="h-6 w-6" />,
-    title: "v0 Support",
-    desc: "Launch fast with confidence. Perfect for MVPs, prototypes, and weekend projects.",
+    icon: <Zap className="h-6 w-6" />,
+    title: "Lightning Fast",
+    desc: "Experience near-instantaneous transactions powered by Ethereum blockchain with real-time balance updates.",
   },
   {
-    icon: <Book className="h-6 w-6" />,
-    title: "Full Documentation",
-    desc: "Comprehensive documentation to understand every feature and maximize your development experience.",
+    icon: <TrendingUp className="h-6 w-6" />,
+    title: "DeFi Lending",
+    desc: "Access decentralized lending features with automated loan management and transparent interest calculations.",
   },
   {
-    icon: <PlusCircle className="h-6 w-6" />,
-    title: "Contribute Yours",
-    desc: "Add your own blocks to the library and become part of the MVPBlocks community.",
+    icon: <Globe className="h-6 w-6" />,
+    title: "Global Access",
+    desc: "Bank from anywhere in the world with 24/7 access to your funds through the Ethereum network.",
   },
 ];
 export default function Feature1() {
@@ -56,11 +56,12 @@ export default function Feature1() {
         <div className="relative mx-auto max-w-2xl sm:text-center">
           <div className="relative z-10">
             <h3 className="font-geist mt-4 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-clip-text text-3xl font-normal tracking-tighter text-transparent sm:text-4xl md:text-5xl dark:from-white/70 dark:via-white dark:to-slate-500/80">
-              Let&apos;s help build your MVP
+              The Future of Digital Banking
             </h3>
             <p className="font-geist dark:text-foreground/60 mt-3 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              congue, nisl eget molestie varius, enim ex faucibus purus.
+              Experience decentralized banking powered by Ethereum smart
+              contracts. Secure, transparent, and accessible financial services
+              for the digital age.
             </p>
           </div>
           <div

@@ -6,10 +6,8 @@ import type React from "react";
 
 export default function HomePage() {
   return (
-    <section className="flex size-full flex-col bg-white dark:bg-black">
-      <header className="relative z-50 mx-auto w-full max-w-[2000px]">
-        <Header header_className="text-white" />
-      </header>
+    <section className="flex size-full flex-col">
+      <Header header_className="text-white" />
       <AppHero />
       <Feature1 />
       <Faq3 />

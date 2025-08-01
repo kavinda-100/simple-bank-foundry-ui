@@ -122,29 +122,34 @@ function FAQItem({ question, answer, index }: FAQItemProps) {
 export default function Faq3() {
   const faqs: Omit<FAQItemProps, "index">[] = [
     {
-      question: "What makes MVPBlocks unique?",
+      question: "How does Simple Bank work with Ethereum?",
       answer:
-        "MVPBlocks stands out through its intuitive design, powerful component library, and seamless integration options. We've focused on creating a user experience that combines simplicity with advanced features, all while maintaining excellent performance and accessibility.",
+        "Simple Bank is built on Ethereum smart contracts, ensuring your transactions are secure, transparent, and immutable. Every deposit, withdrawal, and transfer is recorded on the blockchain, giving you complete visibility and control over your funds.",
     },
     {
-      question: "How can I customize the components?",
+      question: "What wallet addresses are supported?",
       answer:
-        "All components are built with Tailwind CSS, making them highly customizable. You can modify colors, spacing, typography, and more by simply adjusting the class names or using our theme variables to match your brand identity.",
+        "Simple Bank supports all Ethereum-compatible wallets including MetaMask, WalletConnect, Coinbase Wallet, and hardware wallets like Ledger and Trezor. Simply connect your wallet to start banking with crypto.",
     },
     {
-      question: "Do the components work with dark mode?",
+      question: "How do deposits and withdrawals work?",
       answer:
-        "Yes, all MVPBlocks components are designed to work seamlessly with both light and dark modes. They automatically adapt to your site's theme settings, providing a consistent user experience regardless of the user's preference.",
+        "Deposits and withdrawals are processed through smart contracts on the Ethereum network. Simply connect your wallet, specify the amount, and confirm the transaction. Your balance updates in real-time once the transaction is confirmed on the blockchain.",
     },
     {
-      question: "How can I get started with MVPBlocks?",
+      question: "Can I take loans against my deposits?",
       answer:
-        "You can get started by browsing our component library and copying the code for the components you need. Our documentation provides clear instructions for installation and usage, and you can always reach out to our support team if you need assistance.",
+        "Yes! Simple Bank offers decentralized lending features. You can borrow against your deposited funds with transparent interest rates and automated loan management. All loan terms are handled by smart contracts for maximum security and transparency.",
     },
     {
-      question: "Can I use MVPBlocks for commercial projects?",
+      question: "What transaction types are available?",
       answer:
-        "Absolutely! MVPBlocks is free to use for both personal and commercial projects. There are no licensing fees or attribution requirements—just build and launch your MVP faster than ever before.",
+        "Simple Bank supports various transaction types including account creation, deposits, withdrawals, transfers between accounts, borrowing, and loan repayments. All transactions are secured by Ethereum smart contracts and recorded immutably on the blockchain.",
+    },
+    {
+      question: "Is my money safe with Simple Bank?",
+      answer:
+        "Your funds are secured by Ethereum blockchain technology and smart contracts that have been audited for security. Unlike traditional banks, you maintain full control of your private keys and can verify all transactions on the blockchain.",
     },
   ];
 
@@ -176,14 +181,14 @@ export default function Faq3() {
             variant="outline"
             className="dark:border-primary dark:text-primary mb-4 border-purple-300 bg-purple-50 px-3 py-1 text-xs font-medium tracking-wider text-purple-700 uppercase dark:bg-transparent"
           >
-            FAQs
+            Support
           </Badge>
 
           <h2 className="dark:from-primary mb-3 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-3xl font-bold text-transparent dark:to-rose-400">
             Frequently Asked Questions
           </h2>
           <p className="dark:text-muted-foreground text-sm text-gray-600">
-            Everything you need to know about MVPBlocks
+            Everything you need to know about Simple Bank
           </p>
         </motion.div>
 
@@ -205,10 +210,10 @@ export default function Faq3() {
             <Mail className="h-4 w-4" />
           </div>
           <p className="dark:text-foreground mb-1 text-sm font-medium text-gray-900">
-            Still have questions?
+            Need help with your account?
           </p>
           <p className="dark:text-muted-foreground mb-4 text-xs text-gray-600">
-            We&apos;re here to help you
+            Our blockchain experts are here to assist you
           </p>
           <button
             type="button"
